@@ -19,9 +19,20 @@ function generatePoem(event) {
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
   
   let poemElement = document.querySelector("#poem");
-  poemElement.innerHTML = "⏳ Generating your poem...";
+  let submitButton = document.querySelector("input[type='submit']");
   
-  axios.get(apiUrl).then(displayPoem);
+  // Disable button and show loading state
+  submitButton.disabled = true;
+  submitButton.value = "GENERATING...";
+  poemElement.classList.add("loading");
+  poemElement.innerHTML = "⏳ AI is crafting your poem, please wait...";
+  
+  axios.get(apiUrl).then(function(response) {
+    poemElement.classList.remove("loading");
+    submitButton.disabled = false;
+    submitButton.value = "GENERATE POEM";
+    displayPoem(response);
+  });
 }
 
 let poemForm = document.querySelector("#poem-form");
