@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <title>AI English Poem Generator</title>
+     <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <title>AI English Poem Generator</title>
   </head>
   <body>
     <header>
       <h1>AI English Poem Generator</h1>
     </header>
     <main>
-      <form>
+      <form id="poem-form">
         <input
           type="text"
           placeholder="What should the poem be about?"
+          id="poem-topic"
           autofocus
           required
           autocomplete="off"
         />
         <input type="submit" value="Generate Poem" />
       </form>
-      <div class="poem">
+      <div class="poem" id="poem">
         Your poem will appear here...
       </div>
     </main>
