@@ -21,7 +21,6 @@ function generatePoem(event) {
   let poemElement = document.querySelector("#poem");
   let submitButton = document.querySelector("input[type='submit']");
   
-  // Disable button and show loading state
   submitButton.disabled = true;
   submitButton.value = "GENERATING...";
   poemElement.classList.add("loading");
@@ -37,3 +36,13 @@ function generatePoem(event) {
 
 let poemForm = document.querySelector("#poem-form");
 poemForm.addEventListener("submit", generatePoem);
+
+window.addEventListener("load", function() {
+  let poemElement = document.querySelector("#poem");
+  new Typewriter("#poem", {
+    strings: "Welcome to the AI Poem Generator,<br />Where words dance and dreams take flight,<br />Type your topic, press the button,<br />And watch as verses come to light.",
+    autoStart: true,
+    delay: 30,
+    cursor: "",
+  });
+});
